@@ -3,146 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অনলাইন ড্যাশবোর্ড - হাওড়ামারি উম্মুল মূমিনীন মহিলা মাদ্রাসা</title>
-    <!-- Tailwind CSS for Advanced UI Layout -->
+    <title>অনлайн ড্যাশবোর্ড - হাওড়ামারি উম্মুল মূমিনীন মহিলা মাদ্রাসা</title>
+    <!-- Tailwind CSS for Advanced Premium UI -->
     <script src="https://tailwindcss.com"></script>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2 family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             font-family: 'Hind Siliguri', 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f0f4f8;
         }
         .academic-scroll::-webkit-scrollbar {
-            height: 6px;
+            height: 8px;
         }
         .academic-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
+            background: #0f766e;
+            border-radius: 4px;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #064e3b 0%, #115e59 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .blink-alert {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0%, 100% { background-color: #ffe4e6; color: #9f1239; border-color: #fecdd3; }
+            50% { background-color: #fff1f2; color: #e11d48; border-color: #fda4af; }
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="text-gray-800 antialiased bg-slate-50">
 
     <!-- Top Branding Banner -->
-    <header class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <div class="bg-white/10 p-2.5 rounded-full text-2xl">🕌</div>
+    <header class="premium-gradient text-white shadow-xl relative overflow-hidden border-b-4 border-amber-500">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent)] pointer-events-none"></div>
+        <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <div class="flex items-center gap-4">
+                <div class="bg-amber-400 p-3 rounded-full text-3xl shadow-inner animate-bounce">🕌</div>
                 <div>
-                    <h1 class="text-xl md:text-2xl font-bold tracking-wide">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
-                    <p class="text-xs text-emerald-200">আবাসিক ৮০ জন ছাত্রী - অল-ইন-ওয়ান অনলাইন ট্র্যাকিং পোর্টাল</p>
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide drop-shadow-md">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
+                    <p class="text-xs md:text-sm text-emerald-200 mt-0.5 font-medium tracking-wider">🌟 আবাসিক ৮১ জন ছাত্রী - অল-ইন-ওয়ান অনলাইন ট্র্যাকিং পোর্টাল</p>
                 </div>
             </div>
-            <div class="bg-emerald-950/50 px-4 py-2 rounded-xl text-center border border-emerald-700/30">
-                <p class="text-[10px] uppercase text-emerald-300 font-bold tracking-widest">লাইভ সিস্টেম ক্লক</p>
-                <p class="text-sm font-semibold text-white">১৭ আগস্ট, ২০২৬</p>
+            <div class="bg-emerald-950/60 px-5 py-2.5 rounded-2xl text-center border border-emerald-500/30 shadow-lg">
+                <p class="text-[10px] uppercase text-amber-400 font-bold tracking-widest mb-0.5">⏱️ লাইভ সিস্টেম তারিখ</p>
+                <p class="text-base font-bold text-white" id="live-date-sync">১৭ আগস্ট, ২০২৬</p>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-6">
+    <main class="container mx-auto px-4 py-8">
         
-        <!-- GUARDIAN TRACKING HUB (TOP PRIORITY FOR PUBLIC ACCESS) -->
-        <section class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-2xl p-5 md:p-6 shadow-md mb-8 border border-blue-800/40">
-            <div class="max-w-xl">
-                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">অভিভাবক কর্নার / Guardian Tracking Portal</span>
-                <h2 class="text-xl md:text-2xl font-bold mt-2">আপনার মেয়ের আইডি বা রোল দিয়ে বর্তমান স্ট্যাটাস চেক করুন</h2>
-                <p class="text-xs text-slate-300 mt-1">পড়াশোনার মান, দৈনিক পড়া দেওয়ার অবস্থা, মাসিক ফি এবং ছুটির লাইভ রিপোর্ট দেখতে নিচে রোল নম্বর চাপুন।</p>
+        <!-- GUARDIAN TRACKING HUB (PREMIUM COLOR LAYOUT) -->
+        <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-2xl mb-10 border-2 border-indigo-500/20 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-2xl relative z-10">
+                <span class="bg-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-indigo-500/30">✨ অনলাইন অভিভাবক কর্নার / Guardian Portal</span>
+                <h2 class="text-2xl md:text-3xl font-black mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-amber-300">মেয়ের রোল নম্বর দিয়ে লাইভ স্ট্যাটাস দেখুন</h2>
+                <p class="text-xs md:text-sm text-slate-300 mt-1.5 leading-relaxed">পড়াশোনার মান, দৈনিক পড়া দেওয়ার অবস্থা, মাসিক ফি এবং ছুটির লাইভ প্রগতি পত্র চেক করতে নিচে মেয়ের সঠিক রোল নম্বরটি লিখুন।</p>
                 
-                <div class="mt-4 flex gap-2">
-                    <input type="number" id="guardian-search-input" min="1" max="80" placeholder="ছাত্রীর রোল নম্বর লিখুন (১ - ৮০)..." class="w-full px-4 py-2.5 rounded-xl text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
-                    <button onclick="trackStudentByGuardian()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm shadow-sm whitespace-nowrap">🔍 স্ট্যাটাস দেখুন</button>
+                <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                    <input type="number" id="guardian-search-input" min="1" max="81" placeholder="ছাত্রীর রোল নম্বর লিখুন (১ - ৮১)..." class="w-full px-5 py-3.5 rounded-2xl text-gray-900 font-bold focus:outline-none focus:ring-4 focus:ring-amber-400 text-base shadow-inner">
+                    <button onclick="trackStudentByGuardian()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold px-8 py-3.5 rounded-2xl transition-all duration-200 text-base shadow-lg transform hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap">🔍 স্ট্যাটাস খুঁজুন</button>
                 </div>
             </div>
 
             <!-- DYNAMIC REPORT GATEWAY FOR PARENTS -->
-            <div id="guardian-report-card" class="hidden mt-6 bg-white text-gray-900 rounded-xl p-5 border border-slate-200 shadow-xl transition-all duration-300">
+            <div id="guardian-report-card" class="hidden mt-8 bg-white text-gray-900 rounded-2xl p-6 border-2 border-amber-400 shadow-2xl transition-all duration-300 transform scale-100">
                 <!-- Data will be rendered here dynamically -->
             </div>
         </section>
 
         <!-- MADRASA INTERNAL MANAGEMENT SYSTEM -->
-        <div class="border-t border-slate-200 pt-4 mb-4 flex justify-between items-center">
-            <h3 class="text-lg font-bold text-slate-700">🔒 মাদ্রাসা অভ্যন্তরীণ প্রশাসনিক প্যানেল</h3>
-            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded">শুধুমাত্র শিক্ষকদের জন্য</span>
+        <div class="border-t-2 border-slate-200 pt-6 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <div>
+                <h3 class="text-xl font-black text-slate-800 flex items-center gap-2">🔒 মাদ্রাসা অভ্যন্তরীণ কন্ট্রোল প্যানেল</h3>
+                <p class="text-xs text-gray-500 font-medium">নিচের মডিউলগুলো শুধুমাত্র মাদ্রাসার শিক্ষক ও শিক্ষিকাদের ব্যবহারের জন্য।</p>
+            </div>
+            <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-200 shadow-sm">Authorized Access Only</span>
         </div>
 
         <!-- Navigation Tabs for Internal Teachers -->
-        <div class="flex flex-wrap bg-white p-2 rounded-xl shadow-sm border border-slate-100 gap-1.5 mb-6">
-            <button onclick="switchTab('academic')" id="tab-academic" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center bg-emerald-800 text-white transition">📚 ২২ সাবজেক্টের পড়া খাতা</button>
-            <button onclick="switchTab('finance')" id="tab-finance" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center text-slate-600 hover:bg-slate-50 transition">💰 মাসিক ফি ও খতিয়ান</button>
-            <button onclick="switchTab('leaves')" id="tab-leaves" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center text-slate-600 hover:bg-slate-50 transition">📋 ছুটির ডিজিটাল খাতা</button>
+        <div class="grid grid-cols-1 sm:grid-cols-3 bg-white p-2 rounded-2xl shadow-md border border-slate-200/60 gap-2 mb-8">
+            <button onclick="switchTab('academic')" id="tab-academic" class="tab-btn py-3 px-4 rounded-xl font-extrabold text-sm text-center bg-emerald-800 text-white shadow-md transition-all duration-150">📚 ২২ সাবজেক্টের পড়া খাতা</button>
+            <button onclick="switchTab('finance')" id="tab-finance" class="tab-btn py-3 px-4 rounded-xl font-extrabold text-sm text-center text-slate-600 hover:bg-slate-100 transition-all duration-150">💰 মাসিক ফি ও ক্যাশ খতিয়ান</button>
+            <button onclick="switchTab('leaves')" id="tab-leaves" class="tab-btn py-3 px-4 rounded-xl font-extrabold text-sm text-center text-slate-600 hover:bg-slate-100 transition-all duration-150">📋 ছুটির ডিজিটাল খাতা</button>
         </div>
 
         <!-- TAB 1: ACADEMIC PROGRESS SHEET -->
-        <div id="view-academic" class="tab-content block bg-white rounded-xl shadow-sm border p-4 md:p-6">
-            <div class="mb-4">
-                <h3 class="text-lg font-bold text-slate-800">দৈনিক পড়া আদায় খাতা (২২টি মাদ্রাসা সাবজেক্ট)</h3>
-                <p class="text-xs text-slate-500">কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।</p>
+        <div id="view-academic" class="tab-content block bg-white rounded-2xl shadow-xl border border-slate-100 p-4 md:p-6">
+            <div class="mb-4 border-b border-slate-100 pb-4">
+                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-1.5">📝 দৈনিক পড়া আদায় খাতা (২২টি সুনির্দিষ্ট সাবজেক্ট)</h3>
+                <p class="text-xs text-slate-500 mt-0.5">কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।</p>
             </div>
-            <div class="overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 academic-scroll">
-                <table class="w-full border-collapse bg-white min-w-[2200px] text-xs">
+            <div class="overflow-x-auto rounded-xl border border-slate-200 bg-slate-50 academic-scroll">
+                <table class="w-full border-collapse bg-white min-w-[2300px] text-xs">
                     <thead>
-                        <tr class="bg-emerald-900 text-white text-left font-medium">
-                            <th class="p-3 text-center sticky left-0 bg-emerald-950 z-20 w-16">রোল</th>
-                            <th class="p-3 sticky left-16 bg-emerald-950 z-20 w-48">ছাত্রীর নাম</th>
-                            <th class="p-3 text-center bg-rose-900 w-32">আজকের অবস্থা</th>
-                            <th class="p-3 border-l border-emerald-800">কোরান মাজীদ (হিফজ)</th>
-                            <th class="p-3 border-l border-emerald-800">কোরান মাজীদ (নাজরাহ্)</th>
-                            <th class="p-3 border-l border-emerald-800">আরবী ব্যাকরণ</th>
-                            <th class="p-3 border-l border-emerald-800">কসাস ও আমসাল</th>
-                            <th class="p-3 border-l border-emerald-800">ফিকহ ও মাসায়েল</th>
-                            <th class="p-3 border-l border-emerald-800">নসিহত</th>
-                            <th class="p-3 border-l border-emerald-800">বাংলা</th>
-                            <th class="p-3 border-l border-emerald-800">ইংরেজি</th>
-                            <th class="p-3 border-l border-emerald-800">অঙ্ক</th>
-                            <th class="p-3 border-l border-emerald-800">ইতিহাস</th>
-                            <th class="p-3 border-l border-emerald-800">ভূগোল</th>
-                            <th class="p-3 border-l border-emerald-800">জীবন বিজ্ঞান</th>
-                            <th class="p-3 border-l border-emerald-800">ভৌত বিজ্ঞান</th>
-                            <th class="p-3 border-l border-emerald-800">সিনিয়র মাদ্রাসা সাবজেক্ট</th>
-                            <th class="p-3 border-l border-emerald-800">নূরানী কায়দা</th>
-                            <th class="p-3 border-l border-emerald-800">উর্দূ কায়দা</th>
-                            <th class="p-3 border-l border-emerald-800">উর্দূ পেহলি</th>
-                            <th class="p-3 border-l border-emerald-800">তা'লিমুল ইসলাম</th>
-                            <th class="p-3 border-l border-emerald-800">দোয়া</th>
-                            <th class="p-3 border-l border-emerald-800">আঞ্জুমান</th>
-                        </tr>
-                    </thead>
-                    <tbody id="academic-table-body" class="divide-y divide-slate-100"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- TAB 2: FINANCE BALANCES SHEET -->
-        <div id="view-finance" class="tab-content hidden bg-white rounded-xl shadow-sm border p-4 md:p-6">
-            <h3 class="text-lg font-bold text-slate-800 mb-4">মাসিক আবাসিক ফি ম্যানেজমেন্ট রেজিস্টার</h3>
-            <div class="overflow-x-auto rounded-lg border">
-                <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-800 text-white text-xs">
-                        <tr>
-                            <th class="p-3 text-center">রোল</th>
-                            <th class="p-3">ছাত্রীর নাম</th>
-                            <th class="p-3 text-center">চলতি মাসের ফি অবস্থা</th>
-                            <th class="p-3 text-center">বকেয়া (কয়মাস বাকি?)</th>
-                            <th class="p-3 text-center">অগ্রিম জমা (Advanced)</th>
-                            <th class="p-3 text-center">অ্যাকশন</th>
-                        </tr>
-                    </thead>
-                    <tbody id="finance-table-body" class="divide-y divide-slate-100 text-xs"></tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- TAB 3: LEAVE REGISTRATION DISPATCH -->
-        <div id="view-leaves" class="tab-content hidden bg-white rounded-xl shadow-sm border p-4 md:p-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Form Input -->
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
-                    <h4 class="font-bold text-slate-800 mb-3 border-b pb-2">➕ নতুন ছুটির পাস ইস্যু</h4>
-                    <form onsubmit="issueNewLeave(event)" class="space-y-3 text-xs">
-                        <div>
-                            <label class="block font-medium mb-0.5">ছাত্রী নির্বাচন করুন</label>
+                        <tr class="bg-gradient-to-r from-emerald-900 to-teal-950 text-white text-left font-bold shadow-md">
+                            <th class="p-4 text-center sticky left-0 bg-emerald-950 z-20 w-16 text-sm border-r border-emerald-800">রোল</th>
+                            <th class="p-4 sticky left-16 bg-emerald-950 z-20 w-56 text-sm border-r border-emerald-800">ছাত্রীর নাম ও জামাত</th>
+                            <th class="p-4 text-center bg-rose-950 w-36 text-sm">আজকের অবস্থা</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">কোরান মাজীদ (হিফজ)</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">কোরান মাজীদ (নাজরাহ্)</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">আরবী ব্যাকরণ</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">কসাস ও আমসাল</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">ফিকহ ও মাসায়েল</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">নসিহত</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">বাংলা</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">ইংরেজি</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">অঙ্ক</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">ইতিহাস</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">ভূগোল</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">জীবন বিজ্ঞান</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">ভৌত বিজ্ঞান</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">সিনিয়র মাদ্রাসা সাবজেক্ট</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">নূরানী কায়দা</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">উর্দূ কায়দা</th>
+                            <th class="p-3 border-l border-emerald-800 text-center font-semibold">উর্দূ পেহলি</th>
+                            
