@@ -38,7 +38,6 @@
             100% { border-color: #fbbf24; box-shadow: 0 12px 0px 0px #022c22, 0 0 30px #fbbf24; }
         }
 
-        /* Text Glowing Effect inside Banner */
         .glowing-text {
             animation: text-glow-pulse 1.5s infinite alternate;
         }
@@ -111,11 +110,11 @@
 </head>
 <body class="text-slate-900 antialiased bg-slate-100 p-2 sm:p-4">
 
-    <!-- Glowing 3D Rectangular Banner (Requested Upgraded Area) -->
+    <!-- Glowing 3D Rectangular Banner -->
     <header class="container mx-auto max-w-6xl glowing-3d-banner text-white p-6 md:p-8 mt-4 mb-10 relative overflow-hidden">
         <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <div class="flex items-center gap-4">
-                <div class="bg-amber-400 p-3.5 rounded-2xl text-4xl shadow-[0_6px_0px_0px_#0f172a] border-2 border-slate-950 text-emerald-950 font-black transform -rotate-3 animate-bounce">专</div>
+                <div class="bg-amber-400 p-3.5 rounded-2xl text-4xl shadow-[0_6px_0px_0px_#0f172a] border-2 border-slate-950 text-emerald-950 font-black transform -rotate-3">🕌</div>
                 <div>
                     <h1 class="text-2xl md:text-4xl font-black tracking-wide glowing-text text-amber-300">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
                     <p class="text-xs md:text-sm text-white mt-2 font-bold tracking-wider">🌟 আবাসিক ৮১ জন ছাত্রী — অল-ইন-ওয়ান ৩ডি স্মার্ট অনলাইন প্রগতি পোর্টাল</p>
@@ -130,12 +129,13 @@
 
     <main class="container mx-auto max-w-6xl">
         
-        <!-- GUARDIAN TRACKING HUB -->
-        <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-6 md:p-8 shadow-[0_12px_0px_0px_#0f172a,0_20px_30px_rgba(0,0,0,0.3)] mb-12 border-4 border-slate-800 relative overflow-hidden">
+        <!-- GUARDIAN TRACKING HUB (HIGH CONTRAST TEXT UPGRADE) -->
+        <section class="bg-gradient-to-br from-slate-950 via-slate-950 to-indigo-950 text-white rounded-3xl p-6 md:p-8 shadow-[0_12px_0px_0px_#0f172a,0_20px_30px_rgba(0,0,0,0.3)] mb-12 border-4 border-amber-500 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
             <div class="max-w-2xl relative z-10">
-                <span class="bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border-2 border-slate-950 shadow-md">✨ ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL</span>
-                <h2 class="text-2xl md:text-3xl font-black mt-4 text-white drop-shadow-md">মেয়ের রোল নম্বর দিয়ে লাইভ স্ট্যাটাস দেখুন</h2>
-                <p class="text-xs md:text-sm text-slate-300 mt-2 font-medium leading-relaxed">পড়াশোনার মান, দৈনিক পড়া দেওয়ার অবস্থা, মাসিক ফি এবং ছুটির লাইভ প্রগতি পত্র চেক করতে নিচে মেয়ের সঠিক রোল নম্বরটি লিখুন।</p>
+                <span class="bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-widest px-4 py-2 rounded-xl border-2 border-slate-950 shadow-md inline-block">✨ ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL</span>
+                <h2 class="text-2xl md:text-3xl font-black mt-5 text-amber-300 drop-shadow-md tracking-wide">মেয়ের রোল নম্বর দিয়ে লাইভ স্ট্যাটাস দেখুন</h2>
+                <p class="text-sm text-white font-bold mt-2 leading-relaxed bg-black/30 p-2.5 rounded-xl border border-slate-800">পড়াশোনার মান, দৈনিক পড়া দেওয়ার অবস্থা, মাসিক ফি এবং ছুটির লাইভ প্রগতি পত্র চেক করতে নিচে মেয়ের সঠিক রোল নম্বরটি লিখুন।</p>
                 
                 <div class="mt-6 flex flex-col sm:flex-row gap-4">
                     <input type="number" id="guardian-search-input" min="1" max="81" placeholder="ছাত্রীর রোল নম্বর লিখুন (১ - ৮১)..." class="w-full px-5 py-4 rounded-xl text-gray-900 text-lg input-3d-premium focus:outline-none">
@@ -159,10 +159,11 @@
         </div>
 
         <!-- Navigation Tabs for Internal Teachers -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
-            <button onclick="switchTab('academic')" id="tab-academic" class="btn-3d-glow-emerald text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">📚 ২২ সাবজেক্টের পড়া খাতা</button>
-            <button onclick="switchTab('finance')" id="tab-finance" class="btn-3d-glow-slate text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">💰 মাসিক ফি ও ক্যাশ খতিয়ান</button>
-            <button onclick="switchTab('leaves')" id="tab-leaves" class="btn-3d-glow-slate text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">📋 ছুটির ডিজিটাল খাতা</button>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+            <button onclick="switchTab('academic')" id="tab-academic" class="btn-3d-glow-emerald text-white py-4 px-2 rounded-xl font-black text-xs sm:text-sm tracking-wide">📚 ২২ সাবজেক্টের খাতা</button>
+            <button onclick="switchTab('directory')" id="tab-directory" class="btn-3d-glow-slate text-white py-4 px-2 rounded-xl font-black text-xs sm:text-sm tracking-wide">👩‍🎓 অল ছাত্রী ডিরেক্টরি</button>
+            <button onclick="switchTab('finance')" id="tab-finance" class="btn-3d-glow-slate text-white py-4 px-2 rounded-xl font-black text-xs sm:text-sm tracking-wide">💰 মাসিক ফি খতিয়ান</button>
+            <button onclick="switchTab('leaves')" id="tab-leaves" class="btn-3d-glow-slate text-white py-4 px-2 rounded-xl font-black text-xs sm:text-sm tracking-wide">📋 ছুটির ডিজিটাল খাতা</button>
         </div>
 
         <!-- TAB 1: ACADEMIC PROGRESS SHEET -->
@@ -171,7 +172,3 @@
                 <h3 class="text-lg font-black text-slate-800 flex items-center gap-2">🟢 দৈনিক পড়া আদায় খাতা (২২টি সুনির্দিষ্ট সাবজেক্ট)</h3>
                 <p class="text-xs text-slate-600 mt-1 font-bold">কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাইভ থ্রিডি লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।</p>
             </div>
-            <div class="overflow-x-auto rounded-xl border-4 border-slate-950 bg-emerald-950 p-2 academic-scroll shadow-inner">
-                <table class="w-full border-collapse bg-white min-w-[2400px] text-xs rounded-lg overflow-hidden">
-                    <thead>
-                        <tr class="bg-slate-950 text-amber-300 text-left font-black shadow-md border-b-4 border-amber-500">
