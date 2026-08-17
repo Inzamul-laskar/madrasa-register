@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অনলাইন ড্যাশবোর্ড - হাওড়ামারি উম্মুল মূমিনীন মহিলা মাদ্রাসা</title>
+    <!-- Tailwind CSS for Advanced UI Layout -->
+    <script src="https://tailwindcss.com"></script>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .academic-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .academic-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Top Branding Banner -->
+    <header class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/10 p-2.5 rounded-full text-2xl">🕌</div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wide">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
+                    <p class="text-xs text-emerald-200">আবাসিক ৮০ জন ছাত্রী - অল-ইন-ওয়ান অনলাইন ট্র্যাকিং পোর্টাল</p>
+                </div>
+            </div>
+            <div class="bg-emerald-950/50 px-4 py-2 rounded-xl text-center border border-emerald-700/30">
+                <p class="text-[10px] uppercase text-emerald-300 font-bold tracking-widest">লাইভ সিস্টেম ক্লক</p>
+                <p class="text-sm font-semibold text-white">১৭ আগস্ট, ২০২৬</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        
+        <!-- GUARDIAN TRACKING HUB (TOP PRIORITY FOR PUBLIC ACCESS) -->
+        <section class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-2xl p-5 md:p-6 shadow-md mb-8 border border-blue-800/40">
+            <div class="max-w-xl">
+                <span class="bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">অভিভাবক কর্নার / Guardian Tracking Portal</span>
+                <h2 class="text-xl md:text-2xl font-bold mt-2">আপনার মেয়ের আইডি বা রোল দিয়ে বর্তমান স্ট্যাটাস চেক করুন</h2>
+                <p class="text-xs text-slate-300 mt-1">পড়াশোনার মান, দৈনিক পড়া দেওয়ার অবস্থা, মাসিক ফি এবং ছুটির লাইভ রিপোর্ট দেখতে নিচে রোল নম্বর চাপুন।</p>
+                
+                <div class="mt-4 flex gap-2">
+                    <input type="number" id="guardian-search-input" min="1" max="80" placeholder="ছাত্রীর রোল নম্বর লিখুন (১ - ৮০)..." class="w-full px-4 py-2.5 rounded-xl text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                    <button onclick="trackStudentByGuardian()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm shadow-sm whitespace-nowrap">🔍 স্ট্যাটাস দেখুন</button>
+                </div>
+            </div>
+
+            <!-- DYNAMIC REPORT GATEWAY FOR PARENTS -->
+            <div id="guardian-report-card" class="hidden mt-6 bg-white text-gray-900 rounded-xl p-5 border border-slate-200 shadow-xl transition-all duration-300">
+                <!-- Data will be rendered here dynamically -->
+            </div>
+        </section>
+
+        <!-- MADRASA INTERNAL MANAGEMENT SYSTEM -->
+        <div class="border-t border-slate-200 pt-4 mb-4 flex justify-between items-center">
+            <h3 class="text-lg font-bold text-slate-700">🔒 মাদ্রাসা অভ্যন্তরীণ প্রশাসনিক প্যানেল</h3>
+            <span class="text-xs bg-slate-200 text-slate-600 px-2 py-1 rounded">শুধুমাত্র শিক্ষকদের জন্য</span>
+        </div>
+
+        <!-- Navigation Tabs for Internal Teachers -->
+        <div class="flex flex-wrap bg-white p-2 rounded-xl shadow-sm border border-slate-100 gap-1.5 mb-6">
+            <button onclick="switchTab('academic')" id="tab-academic" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center bg-emerald-800 text-white transition">📚 ২২ সাবজেক্টের পড়া খাতা</button>
+            <button onclick="switchTab('finance')" id="tab-finance" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center text-slate-600 hover:bg-slate-50 transition">💰 মাসিক ফি ও খতিয়ান</button>
+            <button onclick="switchTab('leaves')" id="tab-leaves" class="tab-btn flex-1 min-w-[140px] py-2.5 px-2 rounded-lg font-bold text-xs md:text-sm text-center text-slate-600 hover:bg-slate-50 transition">📋 ছুটির ডিজিটাল খাতা</button>
+        </div>
+
+        <!-- TAB 1: ACADEMIC PROGRESS SHEET -->
+        <div id="view-academic" class="tab-content block bg-white rounded-xl shadow-sm border p-4 md:p-6">
+            <div class="mb-4">
+                <h3 class="text-lg font-bold text-slate-800">দৈনিক পড়া আদায় খাতা (২২টি মাদ্রাসা সাবজেক্ট)</h3>
+                <p class="text-xs text-slate-500">কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।</p>
+            </div>
+            <div class="overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 academic-scroll">
+                <table class="w-full border-collapse bg-white min-w-[2200px] text-xs">
+                    <thead>
+                        <tr class="bg-emerald-900 text-white text-left font-medium">
+                            <th class="p-3 text-center sticky left-0 bg-emerald-950 z-20 w-16">রোল</th>
+                            <th class="p-3 sticky left-16 bg-emerald-950 z-20 w-48">ছাত্রীর নাম</th>
+                            <th class="p-3 text-center bg-rose-900 w-32">আজকের অবস্থা</th>
+                            <th class="p-3 border-l border-emerald-800">কোরান মাজীদ (হিফজ)</th>
+                            <th class="p-3 border-l border-emerald-800">কোরান মাজীদ (নাজরাহ্)</th>
+                            <th class="p-3 border-l border-emerald-800">আরবী ব্যাকরণ</th>
+                            <th class="p-3 border-l border-emerald-800">কসাস ও আমসাল</th>
+                            <th class="p-3 border-l border-emerald-800">ফিকহ ও মাসায়েল</th>
+                            <th class="p-3 border-l border-emerald-800">নসিহত</th>
+                            <th class="p-3 border-l border-emerald-800">বাংলা</th>
+                            <th class="p-3 border-l border-emerald-800">ইংরেজি</th>
+                            <th class="p-3 border-l border-emerald-800">অঙ্ক</th>
+                            <th class="p-3 border-l border-emerald-800">ইতিহাস</th>
+                            <th class="p-3 border-l border-emerald-800">ভূগোল</th>
+                            <th class="p-3 border-l border-emerald-800">জীবন বিজ্ঞান</th>
+                            <th class="p-3 border-l border-emerald-800">ভৌত বিজ্ঞান</th>
+                            <th class="p-3 border-l border-emerald-800">সিনিয়র মাদ্রাসা সাবজেক্ট</th>
+                            <th class="p-3 border-l border-emerald-800">নূরানী কায়দা</th>
+                            <th class="p-3 border-l border-emerald-800">উর্দূ কায়দা</th>
+                            <th class="p-3 border-l border-emerald-800">উর্দূ পেহলি</th>
+                            <th class="p-3 border-l border-emerald-800">তা'লিমুল ইসলাম</th>
+                            <th class="p-3 border-l border-emerald-800">দোয়া</th>
+                            <th class="p-3 border-l border-emerald-800">আঞ্জুমান</th>
+                        </tr>
+                    </thead>
+                    <tbody id="academic-table-body" class="divide-y divide-slate-100"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 2: FINANCE BALANCES SHEET -->
+        <div id="view-finance" class="tab-content hidden bg-white rounded-xl shadow-sm border p-4 md:p-6">
+            <h3 class="text-lg font-bold text-slate-800 mb-4">মাসিক আবাসিক ফি ম্যানেজমেন্ট রেজিস্টার</h3>
+            <div class="overflow-x-auto rounded-lg border">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-800 text-white text-xs">
+                        <tr>
+                            <th class="p-3 text-center">রোল</th>
+                            <th class="p-3">ছাত্রীর নাম</th>
+                            <th class="p-3 text-center">চলতি মাসের ফি অবস্থা</th>
+                            <th class="p-3 text-center">বকেয়া (কয়মাস বাকি?)</th>
+                            <th class="p-3 text-center">অগ্রিম জমা (Advanced)</th>
+                            <th class="p-3 text-center">অ্যাকশন</th>
+                        </tr>
+                    </thead>
+                    <tbody id="finance-table-body" class="divide-y divide-slate-100 text-xs"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 3: LEAVE REGISTRATION DISPATCH -->
+        <div id="view-leaves" class="tab-content hidden bg-white rounded-xl shadow-sm border p-4 md:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Form Input -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                    <h4 class="font-bold text-slate-800 mb-3 border-b pb-2">➕ নতুন ছুটির পাস ইস্যু</h4>
+                    <form onsubmit="issueNewLeave(event)" class="space-y-3 text-xs">
+                        <div>
+                            <label class="block font-medium mb-0.5">ছাত্রী নির্বাচন করুন</label>
