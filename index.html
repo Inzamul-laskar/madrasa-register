@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>৩ডি অ্যানিমেটেড অনলাইন ড্যাশবোর্ড - হাওড়ামারি উম্মুল মূমিনীন মহিলা মাদ্রাসা</title>
+    <title>৩ডি অনলাইন ড্যাশবোর্ড - হাওড়ামারি উম্মুল মূমিনীন মহিলা মাদ্রাসা</title>
     <!-- Tailwind CSS for Advanced Premium UI -->
     <script src="https://tailwindcss.com"></script>
     <link rel="preconnect" href="https://googleapis.com">
@@ -24,66 +24,81 @@
             border: 2px solid #042f1a;
         }
         
-        /* 3D Animated GIF-Style Rectangular Canvas Box Effects */
+        /* 3D Rectangular Banner with Golden Pulsing Neon Glow */
+        .glowing-3d-banner {
+            background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #0f766e 100%);
+            border: 4px solid #f59e0b;
+            border-radius: 24px;
+            box-shadow: 0 12px 0px 0px #042f1a, 0 20px 25px rgba(245, 158, 11, 0.2);
+            animation: banner-neon-glow 2s infinite alternate;
+        }
+        
+        @keyframes banner-neon-glow {
+            0% { border-color: #d97706; box-shadow: 0 12px 0px 0px #042f1a, 0 0 15px #d97706; }
+            100% { border-color: #fbbf24; box-shadow: 0 12px 0px 0px #022c22, 0 0 30px #fbbf24; }
+        }
+
+        /* Text Glowing Effect inside Banner */
+        .glowing-text {
+            animation: text-glow-pulse 1.5s infinite alternate;
+        }
+        @keyframes text-glow-pulse {
+            0% { text-shadow: 0 0 4px rgba(255,255,255,0.6); opacity: 0.9; }
+            100% { text-shadow: 0 0 16px #f59e0b, 0 0 24px #fbbf24; opacity: 1; }
+        }
+
+        /* 3D Animated Box Container */
         .box-3d-animated {
             background: #ffffff;
             border-radius: 20px;
             border: 3px solid #0f172a;
-            box-shadow: 0 10px 0px 0px #0f172a, 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 0px 0px #0f172a, 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
-        /* 3D Glowing Button Controls (Acts like dynamic GIF) */
+        /* 3D Glowing Button Controls */
         .btn-3d-glow-amber {
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             border: 3px solid #0f172a;
             color: #ffffff;
-            font-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(217, 119, 6, 0.4);
-            transition: all 0.15s ease;
+            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(217, 119, 6, 0.3);
+            transition: all 0.1s ease;
         }
         .btn-3d-glow-amber:active {
             transform: translateY(6px);
-            box-shadow: 0 2px 0px 0px #0f172a, 0 4px 10px rgba(217, 119, 6, 0.4);
+            box-shadow: 0 2px 0px 0px #0f172a;
         }
         
         .btn-3d-glow-emerald {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             border: 3px solid #0f172a;
             color: #ffffff;
-            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(5, 150, 105, 0.4);
-            transition: all 0.15s ease;
+            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(5, 150, 105, 0.3);
+            transition: all 0.1s ease;
         }
         .btn-3d-glow-emerald:active {
             transform: translateY(6px);
-            box-shadow: 0 2px 0px 0px #0f172a, 0 4px 10px rgba(5, 150, 105, 0.4);
+            box-shadow: 0 2px 0px 0px #0f172a;
         }
 
         .btn-3d-glow-slate {
             background: linear-gradient(135deg, #64748b 0%, #475569 100%);
             border: 3px solid #0f172a;
             color: #ffffff;
-            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(71, 85, 105, 0.3);
-            transition: all 0.15s ease;
+            box-shadow: 0 8px 0px 0px #0f172a, 0 12px 20px rgba(71, 85, 105, 0.2);
+            transition: all 0.1s ease;
         }
         .btn-3d-glow-slate:active {
             transform: translateY(6px);
-            box-shadow: 0 2px 0px 0px #0f172a, 0 4px 10px rgba(71, 85, 105, 0.3);
+            box-shadow: 0 2px 0px 0px #0f172a;
         }
         
-        /* Input Field Advanced contrast styles */
         .input-3d-premium {
             border: 3px solid #0f172a;
             box-shadow: 0 6px 0px 0px #0f172a;
             border-radius: 14px;
             font-weight: 900;
         }
-        .input-3d-premium:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 6px 0px 0px #3b82f6;
-        }
 
-        /* Pulsing neon red alert box */
         .blink-alert-premium {
             animation: live-neon-glow 1.2s infinite alternate;
             border: 2px solid #0f172a;
@@ -94,29 +109,28 @@
         }
     </style>
 </head>
-<body class="text-slate-900 antialiased bg-slate-100">
+<body class="text-slate-900 antialiased bg-slate-100 p-2 sm:p-4">
 
-    <!-- Top Branding Banner (High Contrast Premium Colors) -->
-    <header class="bg-gradient-to-r from-emerald-950 via-teal-900 to-emerald-950 text-white shadow-2xl relative overflow-hidden border-b-8 border-amber-500 rounded-b-[28px]">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.15),transparent)] pointer-events-none animate-pulse"></div>
-        <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+    <!-- Glowing 3D Rectangular Banner (Requested Upgraded Area) -->
+    <header class="container mx-auto max-w-6xl glowing-3d-banner text-white p-6 md:p-8 mt-4 mb-10 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <div class="flex items-center gap-4">
-                <div class="bg-amber-400 p-3 rounded-2xl text-4xl shadow-[0_6px_0px_0px_#0f172a] border-2 border-slate-950 text-emerald-950 font-black transform -rotate-3">🕌</div>
+                <div class="bg-amber-400 p-3.5 rounded-2xl text-4xl shadow-[0_6px_0px_0px_#0f172a] border-2 border-slate-950 text-emerald-950 font-black transform -rotate-3 animate-bounce">专</div>
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-black tracking-wide drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] text-amber-300">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
-                    <p class="text-xs md:text-sm text-white mt-1 font-bold tracking-wider flex items-center gap-1.5">🌟 <span class="text-emerald-300">আবাসিক ৮১ জন ছাত্রী</span> — অল-ইন-ওয়ান ৩ডি স্মার্ট অনলাইন প্রগতি পোর্টাল</p>
+                    <h1 class="text-2xl md:text-4xl font-black tracking-wide glowing-text text-amber-300">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</h1>
+                    <p class="text-xs md:text-sm text-white mt-2 font-bold tracking-wider">🌟 আবাসিক ৮১ জন ছাত্রী — অল-ইন-ওয়ান ৩ডি স্মার্ট অনলাইন প্রগতি পোর্টাল</p>
                 </div>
             </div>
-            <div class="bg-slate-950 text-white px-6 py-3 rounded-2xl text-center border-2 border-amber-500 shadow-[0_6px_0px_0px_#d97706]">
-                <p class="text-[10px] uppercase text-amber-400 font-black tracking-widest mb-0.5">⏱️ লাইভ সিস্টেম তারিখ</p>
+            <div class="bg-slate-950 text-white px-6 py-3 rounded-2xl text-center border-2 border-amber-400 shadow-[0_6px_0px_0px_#d97706] whitespace-nowrap min-w-[160px]">
+                <p class="text-[10px] uppercase text-amber-400 font-black tracking-widest mb-0.5">📅 লাইভ সিস্টেম তারিখ</p>
                 <p class="text-base font-black tracking-wide text-white">১৭ আগস্ট, ২০২৬</p>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto max-w-6xl">
         
-        <!-- GUARDIAN TRACKING HUB (PREMIUM 3D TEXTURED LAYOUT) -->
+        <!-- GUARDIAN TRACKING HUB -->
         <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-6 md:p-8 shadow-[0_12px_0px_0px_#0f172a,0_20px_30px_rgba(0,0,0,0.3)] mb-12 border-4 border-slate-800 relative overflow-hidden">
             <div class="max-w-2xl relative z-10">
                 <span class="bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border-2 border-slate-950 shadow-md">✨ ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL</span>
@@ -144,21 +158,20 @@
             <span class="text-xs font-black bg-emerald-600 text-white px-4 py-1.5 rounded-xl border-2 border-slate-950 shadow-sm">Authorized Staff Only</span>
         </div>
 
-        <!-- Navigation Tabs for Internal Teachers (3D Glowing dynamic buttons) -->
+        <!-- Navigation Tabs for Internal Teachers -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
             <button onclick="switchTab('academic')" id="tab-academic" class="btn-3d-glow-emerald text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">📚 ২২ সাবজেক্টের পড়া খাতা</button>
             <button onclick="switchTab('finance')" id="tab-finance" class="btn-3d-glow-slate text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">💰 মাসিক ফি ও ক্যাশ খতিয়ান</button>
             <button onclick="switchTab('leaves')" id="tab-leaves" class="btn-3d-glow-slate text-white py-4 px-4 rounded-xl font-black text-sm tracking-wide">📋 ছুটির ডিজিটাল খাতা</button>
         </div>
 
-        <!-- TAB 1: ACADEMIC PROGRESS SHEET (HIGH CONTRAST COLOR WORKBOARD) -->
-        <div id="view-academic" class="tab-content block class-board box-3d-animated p-4 md:p-6 bg-gradient-to-b from-white to-slate-50">
+        <!-- TAB 1: ACADEMIC PROGRESS SHEET -->
+        <div id="view-academic" class="tab-content block box-3d-animated p-4 md:p-6 bg-gradient-to-b from-white to-slate-50">
             <div class="mb-4 border-b-2 border-slate-200 pb-4">
-                <h3 class="text-lg font-black text-slate-800 flex items-center gap-2">🟢 দৈনিক পড়া আদায় রঙিন খাতা বোর্ড (২২টি সুনির্দিষ্ট সাবজেক্ট)</h3>
+                <h3 class="text-lg font-black text-slate-800 flex items-center gap-2">🟢 দৈনিক পড়া আদায় খাতা (২২টি সুনির্দিষ্ট সাবজেক্ট)</h3>
                 <p class="text-xs text-slate-600 mt-1 font-bold">কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাইভ থ্রিডি লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।</p>
             </div>
             <div class="overflow-x-auto rounded-xl border-4 border-slate-950 bg-emerald-950 p-2 academic-scroll shadow-inner">
                 <table class="w-full border-collapse bg-white min-w-[2400px] text-xs rounded-lg overflow-hidden">
                     <thead>
                         <tr class="bg-slate-950 text-amber-300 text-left font-black shadow-md border-b-4 border-amber-500">
-                            <th class="p-4 text-center sticky left-0 bg-slate-950 z-20 w-16 text-sm border-r-2 border-slate-800">রোল</th>
