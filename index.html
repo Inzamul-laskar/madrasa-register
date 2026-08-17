@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>স্মার্ট অনলাইন প্রগতি পোর্টাল - হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</title>
-    <!-- Tailwind CSS for styling -->
+    <!-- Tailwind CSS -->
     <script src="https://tailwindcss.com"></script>
     <style>
         @import url('https://googleapis.com');
@@ -26,16 +26,16 @@
 </head>
 <body class="bg-gray-100 min-h-screen pb-12">
 
-    <!-- প্রধান কন্টেইনার (মোবাইল ফ্রেন্ডলি রেসপন্সিভ লেআউট) -->
+    <!-- প্রধান কন্টেইনার -->
     <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg flex flex-col justify-between">
         
         <div>
             <!-- ১. শীর্ষ ব্যানার ও হেডার -->
             <div class="madrasah-header p-4 text-white text-center rounded-b-2xl shadow-md">
-                <h1 class="text-lg font-bold text-yellow-400">স্মার্ট অনলাইন প্রগতি পোর্টাল</h1>
+                <h1 class="text-lg font-bold text-yellow-400">স্মার্ট online প্রগতি পোর্টাল</h1>
                 <p class="text-xs opacity-90 mt-1">হাওড়ামারি উম্মুল মূমিনীন আয়শা সিদ্দিকা রা. মহিলা মাদ্রাসা</p>
                 
-                <!-- লাইভ সিস্টেম তারিখ কার্ড -->
+                <!-- লাইভ সিস্টেম তারিখ کارڈ -->
                 <div class="mt-4 bg-[#003326] border border-emerald-700 rounded-xl p-2 flex items-center justify-between px-4">
                     <div class="flex items-center space-x-3">
                         <div class="bg-white text-red-600 rounded-lg p-1 text-center font-bold w-10">
@@ -53,8 +53,8 @@
                 </div>
             </div>
 
-            <!-- ২. ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL -->
-            <div class="p-5 mt-4">
+            <!-- ২. ৩ডি অনলাইন অভিভাবক কর্নার (লেখা পরিষ্কার ও নিচে নামানো হয়েছে) -->
+            <div class="p-5 mt-2">
                 <div class="guardian-card p-5 border-t-4 border-emerald-600">
                     <div class="flex items-center space-x-2 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-3">
                         <span class="text-base">✨</span>
@@ -75,7 +75,7 @@
                         </button>
                     </div>
 
-                    <!-- লাইভ অভিভাবক নোটিশবোর্ড ফলাফল (ডায়নামিক) -->
+                    <!-- লাইভ অভিভাবক নোটিশবোর্ড ফলাফল -->
                     <div id="guardian-result-box" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-xl transition-all">
                         <div class="flex justify-between items-center border-b border-emerald-200 pb-2 mb-2">
                             <h4 id="res-student-name" class="font-bold text-emerald-900 text-sm">ছাত্রীর নাম: -</h4>
@@ -91,13 +91,13 @@
                 </div>
             </div>
 
-            <!-- ৩. মাদ্রাসা অভ্যন্তরীণ কন্ট্রোল প্যানেল (Authorized Staff Only) -->
+            <!-- ৩. মাদ্রাসা অভ্যন্তরীণ কন্ট্রোল প্যানেল -->
             <div class="p-4 bg-gray-50 border-t border-gray-200">
                 <div class="flex items-center space-x-2 text-gray-800 font-bold text-sm mb-1">
                     <span>🔒</span>
                     <span>মাদ্রাসা অভ্যন্তরীণ কন্ট্রোল প্যানেল</span>
                 </div>
-                <p class="text-xs text-gray-500 mb-4">নিচের মডিউলগুলো শুধুমাত্র মাদ্রাসার শিক্ষক ও শিক্ষিকাদের ব্যবহারের জন্য। <span class="text-red-500 font-semibold text-[10px]">Authorized Staff Only</span></p>
+                <p class="text-xs text-gray-500 mb-4">নিচের মডিউলগুলো শুধুমাত্র মাদ্রাসার শিক্ষক ও শিক্ষিকাদের ব্যবহারের জন্য।</p>
 
                 <!-- ৪টি কোর মডিউল গ্রিড বোতাম -->
                 <div class="grid grid-cols-2 gap-3 mb-5">
@@ -146,4 +146,5 @@
 
                 <!-- ৪.২ অল ছাত্রী ডিরেক্টরি প্যানেল -->
                 <div id="panel-directory" class="hidden bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
-                    
+                    <h3 class="text-base font-bold text-gray-900 mb-3">👩‍🎓 অল ছাত্রী ডিরেক্টরি (মোট ৮১ জন)</h3>
+                    <div class="overflow-x-auto max-h-72 overflow-y-auto border border-gray-200 rounded-xl">
