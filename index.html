@@ -16,7 +16,6 @@
             background: linear-gradient(180deg, #004d40 0%, #00241b 100%);
             border-bottom: 4px solid #ffb300;
         }
-        /* অভিভাবক কর্নারের জন্য পরিষ্কার ও আকর্ষণীয় শ্যাডো স্টাইল */
         .guardian-card {
             background: #ffffff;
             border: 1px solid #e5e7eb;
@@ -54,7 +53,7 @@
                 </div>
             </div>
 
-            <!-- ২. ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL (লেখা নিচে নামানো ও পরিষ্কার করা হয়েছে) -->
+            <!-- ২. ৩ডি অনলাইন অভিভাবক কর্নার / GUARDIAN PORTAL -->
             <div class="p-5 mt-4">
                 <div class="guardian-card p-5 border-t-4 border-emerald-600">
                     <div class="flex items-center space-x-2 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-3">
@@ -125,23 +124,26 @@
 
                 <!-- ৪. ডায়নামিক প্যানেল এরিয়া -->
                 
-                <!-- ৪.১ দৈনিক পড়া আদায় খাতা (২২ সাবজেক্ট) -->
+                <!-- ৪.১ দৈনিক পড়া আদায় খাতা -->
                 <div id="panel-subjects" class="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
                     <div class="flex items-center space-x-2 mb-3">
                         <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
-                        <h3 class="text-base font-bold text-gray-900">দৈনিক পড়া আদায় খাতা (২২টি সুনির্দিষ্ট সাবজেক্ট)</h3>
+                        <h3 class="text-base font-bold text-gray-900">দৈনিক পড়া আদায় খাতা</h3>
                     </div>
-                    <p class="text-xs text-gray-600 mb-4 bg-amber-50 p-2 rounded-lg border border-amber-200">
-                        কোনো ছাত্রী পড়া না পারলে তার সাবজেক্ট বক্সটি আনচেক করুন। সিস্টেমে সাথে সাথে লাইভ লাল নোটিশ চালু হয়ে যাবে যা অভিভাবকেরাও দেখতে পাবেন।
-                    </p>
-
-                    <!-- সার্চ ছাত্রী ফর দৈনিক পড়া -->
                     <div class="mb-4">
                         <label class="block text-xs font-bold text-gray-700 mb-1">ছাত্রী নির্বাচন করুন (শিক্ষকদের জন্য):</label>
                         <select id="subject-student-select" onchange="loadStudentSubjects()" class="w-full bg-gray-50 border border-gray-300 rounded-xl p-2 text-xs font-medium focus:outline-none">
-                            <!-- জাভাস্ক্রিপ্ট দ্বারা লোড হবে -->
                         </select>
                     </div>
-
-                    <!-- সাবজেক্ট চেকলিস্ট গ্রিড -->
                     <div class="border border-gray-100 rounded-xl p-3 bg-gray-50 max-h-60 overflow-y-auto">
+                        <div id="subjects-checkbox-grid" class="grid grid-cols-1 gap-2">
+                        </div>
+                    </div>
+                    <button onclick="saveDailyReading()" class="w-full mt-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs py-2.5 rounded-xl shadow-md transition-all">
+                        💾 দৈনিক পড়া সংরক্ষণ করুন
+                    </button>
+                </div>
+
+                <!-- ৪.২ অল ছাত্রী ডিরেক্টরি প্যানেল -->
+                <div id="panel-directory" class="hidden bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                    
